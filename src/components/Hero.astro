@@ -1,35 +1,48 @@
 <section>
-	<p class="instructions">
-		To get started, open the directory <code>src/pages</code> in your project.<br
-		/>
-		<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-	</p>
-	<img
-		src="https://media.licdn.com/dms/image/v2/C4D03AQHmJLbKv-yJrA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1651156391905?e=1734566400&v=beta&t=_S_alz5XqUUvR-KIeidapsKK2s0E2I5cmAPGQAiPgtc"
-		alt="Foto Perfil"
-	/>
+	<aside>
+		<h1 class="">
+			To get started, open the directory <code>src/pages</code> in your project.<br
+			/>
+			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message
+			above.
+		</h1>
+		<span>
+			Técnico en Diseño Gráfico y Diseño Web Profesional. En este momento
+			sigo estudiando siendo autodidacta JavaScript, React.js, inglés,
+			testing, bases de datos y node.js. Mi interés es la de poder seguir
+			aprendiendo y desarrollar mis habilidades en tecnología, me siento
+			motivado para mejorar y capacitarme. Lo veo como una manera de
+			mejorar en mi carrera profesional.
+		</span>
+	</aside>
+	<aside>
+		<img src="../../public/1651156391905.jfif" alt="Foto Perfil" />
+	</aside>
 </section>
 
 <style>
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(
-			rgba(30, 51, 29, 66%),
-			rgba(20, 112, 13, 33%)
-		);
-		padding: 1.5rem;
+	section {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 calc(100% - 88%);
+		background-color: rgb(27, 31, 27);
 		border-radius: 8px;
+		color: rgb(178, 179, 180);
+		height: 100vh;
 	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
+	aside {
+		padding: 2rem;
 	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
+	h1 {
+		font-size: 2rem;
+	}
+	span {
+		max-width: 50rem;
+		display: inline-block;
+		font-size: 2rem;
+	}
+	img {
+		border-radius: 50%;
 	}
 </style>
