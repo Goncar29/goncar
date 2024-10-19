@@ -35,7 +35,9 @@ import Footer from "../components/Footer.astro";
 			body="Come say hi to our amazing Discord community. ❤️"
 		/>
 	</ul>
-	<Footer />
+	<Footer>
+		<slot />
+	</Footer>
 </Layout>
 
 <style>

@@ -1,35 +1,91 @@
+---
+import Social from "./social.astro";
+---
+
 <section>
-	<p class="instructions">
-		To get started, open the directory <code>src/pages</code> in your project.<br
-		/>
-		<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-	</p>
-	<img
-		src="https://media.licdn.com/dms/image/v2/C4D03AQHmJLbKv-yJrA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1651156391905?e=1734566400&v=beta&t=_S_alz5XqUUvR-KIeidapsKK2s0E2I5cmAPGQAiPgtc"
-		alt="Foto Perfil"
-	/>
+	<footer class="bg-gray-100 dark:bg-gray-900">
+		<div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+			<div class="footer--logo">
+				<img
+					src="https://miro.medium.com/v2/resize:fit:1400/1*nLbfO_PdTSpeCdZQuUr8RQ.png"
+					alt="logo"
+				/>
+				<p class="">
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+					Incidunt consequuntur amet culpa cum itaque neque.
+				</p>
+			</div>
+			<ul class="">
+				<li>
+					<a class="" href="#"> About </a>
+				</li>
+
+				<li>
+					<a class="" href="#"> Careers </a>
+				</li>
+
+				<li>
+					<a class="" href="#"> Behance </a>
+				</li>
+
+				<li>
+					<a class="" href="#"> Services </a>
+				</li>
+
+				<li>
+					<a class="" href="#"> Projects </a>
+				</li>
+
+				<li>
+					<a class="" href="#"> Blog </a>
+				</li>
+			</ul>
+			<Social />
+		</div>
+	</footer>
 </section>
 
 <style>
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(
-			rgba(30, 51, 29, 66%),
-			rgba(20, 112, 13, 33%)
-		);
-		padding: 1.5rem;
-		border-radius: 8px;
+	footer {
+		display: flex;
+		align-items: center;
+		justify-self: center;
+		margin: 4rem 0;
 	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
+	.footer--logo {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 2rem 0;
 	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
+	img {
+		width: 10rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	p {
+		margin-top: 1.5rem;
+		max-width: 28rem;
+		line-height: 1.625;
+		text-align: center;
+		color: #6b7280;
+	}
+	ul {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		justify-self: center;
+		column-gap: 3rem;
+		color: aliceblue;
+		font-size: 1.5rem;
+		list-style: none;
+		margin: 3rem 0;
+	}
+	a {
+		color: #374151;
+	}
+	a:hover {
+		color: brown;
 	}
 </style>
