@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Social from "../../components/Social.astro";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("proyects");
+    return posts.map((post) => ({
+        params: { slug: post.slug },
+        props: post,
+    }));
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<Base title="Proyects">
+    <Header title="Proyects" />
+    <Content />
+    <Footer>
+        <Social />
+    </Footer>
+</Base>

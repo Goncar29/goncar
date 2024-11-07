@@ -1,0 +1,62 @@
+---
+import { ViewTransitions } from "astro:transitions";
+
+const {
+    content: { title, image, tags, link },
+} = Astro.props;
+---
+
+<section>
+    <ViewTransitions />
+    <aside class="">
+        <article class="">
+            <a href="/" class="">⬅ Volver atrás</a>
+            <h2 transition:name={title} class="">
+                {title}<span class="">{tags} </span>
+            </h2>
+
+            <div class="">
+                <slot />
+            </div>
+        </article>
+
+        <article class="">
+            <a href={link}><img alt={title} src={image} class="" /></a>
+        </article>
+    </aside>
+</section>
+
+<style>
+    section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 calc(100% - 88%);
+        background-color: rgb(30, 27, 31);
+        border-radius: 8px;
+        color: rgb(178, 179, 180);
+        height: 50vh;
+    }
+    aside {
+        padding: 2rem;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+    }
+    h2 {
+        font-size: 5rem;
+    }
+    span {
+        display: inline-block;
+        font-size: 1.5rem;
+        padding: 0 1rem;
+    }
+    article {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+    img {
+        width: 33rem;
+        border-radius: 2rem;
+    }
+</style>
