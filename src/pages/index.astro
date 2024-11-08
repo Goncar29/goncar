@@ -1,14 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import Hero from "../components/Hero.astro";
 import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
 import Footer from "../components/Footer.astro";
-import { getCollection } from "astro:content";
-
-const posts = (await getCollection("proyects")).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
-);
 ---
 
 <Layout title="Welcome to my portfolio.">
@@ -285,52 +279,6 @@ const posts = (await getCollection("proyects")).sort(
 		</div>
 	</section>
 </Layout>
-<section>
-	<h1>Proyects</h1>
-	<div>
-		{
-			posts.map((post) => (
-				<Card
-					title={post.data.title}
-					tags={post.data.tags}
-					slug={post.slug}
-				/>
-			))
-		}
-		<!-- <Card
-			href="https://goncar29.github.io/video-games-js/"
-			title="Vide Game"
-			body="A little game created with JavaScript"
-		/>
-		<Card
-			href="/"
-			title="Open Weather Map"
-			body="OpenWeather provides comprehensive weather data services, including current, forecast, and historical weather information."
-		/>
-		<Card
-			href="https://goncar29.github.io/introReact/"
-			title="TODO"
-			body="Application to organize and list things to do"
-		/>
-		<Card
-			href="https://tic-tac-toe-019.pages.dev/"
-			title="Tic-Tac-Toe"
-			body="The player who manages to place three of his marks in a horizontal, vertical or diagonal row is the winner."
-		/>
-		<Card
-			href="/"
-			title="Doctor's visit log"
-			body="Application para registro de usuarios para visitas medicas"
-		/>
-		<Card
-			href="https://carlosngonzalez07a25.myportfolio.com/"
-			title="Graphic and web design portfolio"
-			body="Here you can see some of the work done in graphic and web design, logo creation, brand labels, website and products."
-		/>
-		<Card href="/" title="titulo" body="descripcion" />
-		<Card href="/" title="titulo" body="descripcion" /> -->
-	</div>
-</section>
 
 <Footer>
 	<slot />
