@@ -3,7 +3,7 @@ title: 'TO-DO'
 pubDate: 2024-05-10
 description: 'Application to organize and list things to do'
 image: '../../../public/TO-DO.png'
-link: 'https://goncar29.github.io/introReact/'
+link: 'https://goncar29.github.io/omdbapi-movie/'
 tags: 'React.JS'
 layout: "../../layouts/Posts.astro"
 ---

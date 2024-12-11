@@ -4,23 +4,58 @@ import Base from "../../layouts/Base.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import Social from "../../components/Social.astro";
+import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("proyects");
+
+    console.log("Posts obtenidos:", posts);
     return posts.map((post) => ({
         params: { slug: post.slug },
-        props: post,
+        props: { post },
     }));
 }
 
-const post = Astro.props;
+const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
 <Base title="Proyects">
     <Header title="Proyects" />
-    <Content />
-    <Footer>
-        <Social />
-    </Footer>
+    <article>
+        <h1>{post.data.title}</h1>
+        <p>{post.data.description}</p>
+        {post.data.image && <img src={post.data.image} alt={post.data.title} />}
+        {
+            post.data.link && (
+                <p>
+                    <a
+                        href={post.data.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Visitar proyecto
+                    </a>
+                </p>
+            )
+        }
+        <Content />
+        <!-- Renderiza el contenido Markdown -->
+    </article>
 </Base>
+<Footer>
+    <Social />
+</Footer>
+
+<style>
+    article {
+        height: 50rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    img{
+        width: 20rem;
+
+    }
+</style>
