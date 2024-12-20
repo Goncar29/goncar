@@ -1,12 +1,11 @@
 ---
-title: 'OMDb API - movie'
+title: 'TO-DO'
 pubDate: 2024-05-10
-description: 'Aplicacion mobile donde podras ver informacion de diferentes peliculas y series'
+description: 'Application to organize and list things to do'
 image: '../../../public/TO-DO.png'
 link: 'https://goncar29.github.io/introReact/'
-tags: 'JavaScript'
+tags: 'React.JS'
 layout: "../../layouts/Posts.astro"
 ---
 
-The OMDb API is a RESTful web service to obtain movie information, all content and images on the site are contributed and maintained by our users.
-OMDb API, es una aplicacion mobile donde podras ver informacion general de diferentes peliculas, tanto la puntuacion de cada una, sino tambien la informacion, podras guardarlas como favoritas.
+To-Do, Una aplicacion web de uso local que permite organizar tu día a día ayudándote a administrar, priorizar y conseguir tus objetivos, además de completar tus tareas, puedes editar, marcar como cumplidas e eliminarlas.

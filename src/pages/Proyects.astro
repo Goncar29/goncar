@@ -21,41 +21,15 @@ const posts = (await getCollection("proyects")).sort(
                         title={post.data.title}
                         tags={post.data.tags}
                         slug={post.slug}
+                        body={post.data.body}
                     />
                 ))
             }
-            <!-- <Card
-			href="https://goncar29.github.io/video-games-js/"
-			title="Vide Game"
-			body="A little game created with JavaScript"
-		/>
-		<Card
-			href="/"
-			title="Open Weather Map"
-			body="OpenWeather provides comprehensive weather data services, including current, forecast, and historical weather information."
-		/>
-		<Card
-			href="https://goncar29.github.io/introReact/"
-			title="TODO"
-			body="Application to organize and list things to do"
-		/>
-		<Card
-			href="https://tic-tac-toe-019.pages.dev/"
-			title="Tic-Tac-Toe"
-			body="The player who manages to place three of his marks in a horizontal, vertical or diagonal row is the winner."
-		/>
-		<Card
-			href="/"
-			title="Doctor's visit log"
-			body="Application para registro de usuarios para visitas medicas"
-		/>
-		<Card
+            <!--   <Card
 			href="https://carlosngonzalez07a25.myportfolio.com/"
 			title="Graphic and web design portfolio"
 			body="Here you can see some of the work done in graphic and web design, logo creation, brand labels, website and products."
-		/>
-		<Card href="/" title="titulo" body="descripcion" />
-		<Card href="/" title="titulo" body="descripcion" /> -->
+		/> -->
         </div>
     </section>
     <Footer />
@@ -63,7 +37,6 @@ const posts = (await getCollection("proyects")).sort(
 <style>
     section {
         display: flex;
-        /* align-items: center; */
         justify-content: space-evenly;
         margin: 0 calc(100% - 88%);
         background-color: rgb(30, 27, 31);
@@ -83,7 +56,7 @@ const posts = (await getCollection("proyects")).sort(
     }
     div {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(32ch, 1fr));
         gap: 2rem;
     }
     li {
