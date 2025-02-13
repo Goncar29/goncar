@@ -1,3 +1,8 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+const currentLang = Astro.currentLocale || "es";
+---
+
 <section>
     <aside>
         <img
@@ -10,9 +15,13 @@
     </aside>
     <aside>
         <ul>
-            <a href="/">Sobre mí</a>
-            <a href="/Proyects">Proyectos</a>
-            <a href="/Contact">Contactame</a>
+            <a href={getRelativeLocaleUrl(currentLang, "/")}>Sobre mí</a>
+            <a href={getRelativeLocaleUrl(currentLang, "/Proyects")}
+                >Proyectos</a
+            >
+            <a href={getRelativeLocaleUrl(currentLang, "/Contact")}
+                >Contactame</a
+            >
         </ul>
     </aside>
     <aside>
