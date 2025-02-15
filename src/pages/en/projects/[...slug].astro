@@ -7,7 +7,7 @@ import Social from "@components/Social.astro";
 import Base from "@layouts/Base.astro";
 
 export async function getStaticPaths() {
-    const posts = await getCollection("proyects");
+    const posts = await getCollection("projects");
 
     console.log("Posts obtenidos:", posts);
     return posts.map((post) => ({
@@ -20,27 +20,23 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<Base title="Proyects">
-    <Header title="Proyects" />
+<Base title="Projects">
+    <Header title="Projects" />
     <section>
         <ClientRouter />
-        <aside class="">
-            <article class="">
-                <a href="/Proyects" class="">⬅ Volver atrás</a>
-                <h2 transition:name={post.data.title} class="">
-                    {post.data.title}<span class="">{post.data.tags} </span>
+        <aside>
+            <article>
+                <a href="/en/Projects">⬅ Volver atrás</a>
+                <h2 transition:name={post.data.title}>
+                    {post.data.title}<span>{post.data.tags} </span>
                 </h2>
 
-                <div class=""><Content /></div>
+                <div><Content /></div>
             </article>
 
-            <article class="">
+            <article>
                 <a href={post.data.link}
-                    ><img
-                        alt={post.data.title}
-                        src={post.data.image}
-                        class=""
-                    /></a
+                    ><img alt={post.data.title} src={post.data.image} /></a
                 >
             </article>
         </aside>

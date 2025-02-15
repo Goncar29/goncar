@@ -19,7 +19,7 @@ const translation = useTranslations(lang);
     <aside>
         <ul>
             <a href={`/${lang}/`}>{translation("header.about")}</a>
-            <a href={`/${lang}/Proyects`}>{translation("header.proyects")}</a>
+            <a href={`/${lang}/Projects`}>{translation("header.projects")}</a>
             <a href={`/${lang}/Contact`}>{translation("header.contact")}</a>
         </ul>
     </aside>
@@ -30,7 +30,9 @@ const translation = useTranslations(lang);
         />
         {
             Object.entries(languageList).map(([key, value]) => (
-                <a href={`/${key}/`}>{value}</a>
+                <a href={`/${key}`} key={key}>
+                    {value}
+                </a>
             ))
         }
     </aside>

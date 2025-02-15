@@ -1,19 +1,23 @@
 ---
-import Layouts from "@layouts/Layout.astro";
+import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Card from "@components/Card.astro";
 import Footer from "@components/Footer.astro";
 import { getCollection } from "astro:content";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
-const posts = (await getCollection("proyects")).sort(
+const lang = getLangFromUrl(Astro.url);
+const translation = useTranslations(lang);
+
+const posts = (await getCollection("projects")).sort(
     (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
 );
 ---
 
-<Layouts title="Proyects">
+<Layout title="Projects">
     <Header />
     <section>
-        <h1>Proyects</h1>
+        <h1>{translation("projects.title")}</h1>
         <div>
             {
                 posts.map((post) => (
@@ -28,7 +32,7 @@ const posts = (await getCollection("proyects")).sort(
         </div>
     </section>
     <Footer />
-</Layouts>
+</Layout>
 <style>
     section {
         display: flex;

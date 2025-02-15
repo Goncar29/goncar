@@ -1,5 +1,5 @@
 ---
-import Layouts from "@layouts/Layout.astro";
+import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
@@ -8,7 +8,7 @@ const lang = getLangFromUrl(Astro.url);
 const translation = useTranslations(lang);
 ---
 
-<Layouts title="Proyects">
+<Layout title="Projects">
     <Header />
     <section>
         <h1>{translation("contact.title")}</h1>
@@ -54,7 +54,7 @@ const translation = useTranslations(lang);
                     >
                 </div>
                 <a href="https://wa.me/+59892371223" target="_blank"
-                    >Enviar mensaje por WhatsApp</a
+                    >{translation("contact.whatsapp")}</a
                 >
             </li>
             <li>
@@ -98,7 +98,8 @@ const translation = useTranslations(lang);
                         ></path></svg
                     >
                 </div>
-                <a href="mailto:carlosngonzalez0@gmail.com">Enviame un correo</a
+                <a href="mailto:carlosngonzalez0@gmail.com"
+                    >{translation("contact.email")}</a
                 >
             </li>
             <li>
@@ -261,4 +262,4 @@ const translation = useTranslations(lang);
             transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
         }
     </style>
-</Layouts>
+</Layout>

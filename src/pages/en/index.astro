@@ -3,13 +3,17 @@ import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Hero from "@components/Hero.astro";
 import Footer from "@components/Footer.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const translation = useTranslations(lang);
 ---
 
 <Layout title="Welcome to my portfolio.">
 	<Header />
 	<Hero />
 	<section role="list">
-		<h1>Habilities</h1>
+		<h1>{translation("home.title")}</h1>
 		<div>
 			<ul class="link-cards">
 				<li class="link-cards">

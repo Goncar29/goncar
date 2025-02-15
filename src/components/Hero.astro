@@ -1,14 +1,15 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const translation = useTranslations(lang);
+---
+
 <section>
 	<aside>
-		<h1 class="">Soy Carlos Gonzalez</h1>
+		<h1 class="">{translation("home.iam")}</h1>
 		<span>
-			Técnico en Diseño Gráfico, Diseño Web Profesional y Desarrollador
-			Full stack Jr. En este momento sigo estudiando siendo autodidacta
-			JavaScript, React.js, inglés, testing, bases de datos y node.js. Mi
-			interés es la de poder seguir aprendiendo y desarrollar mis
-			habilidades en tecnología, me siento motivado para mejorar y
-			capacitarme. Lo veo como una manera de mejorar en mi carrera
-			profesional.
+			{translation("home.about")}
 		</span>
 	</aside>
 	<aside>
