@@ -1,4 +1,4 @@
-import { labels, defaultLang } from './ui';
+import { labels, defaultLang } from '@i18n/ui';
 
 export function getLangFromUrl(url: URL) {
     const [, lang] = url.pathname.split('/');

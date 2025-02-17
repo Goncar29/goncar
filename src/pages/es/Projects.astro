@@ -4,7 +4,7 @@ import Header from "@components/Header.astro";
 import Card from "@components/Card.astro";
 import Footer from "@components/Footer.astro";
 import { getCollection } from "astro:content";
-import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const translation = useTranslations(lang);
@@ -14,7 +14,7 @@ const posts = (await getCollection("projects")).sort(
 );
 ---
 
-<Layout title="Projects">
+<Layout title={translation("projects.title")}>
     <Header />
     <section>
         <h1>{translation("projects.title")}</h1>
@@ -39,7 +39,7 @@ const posts = (await getCollection("projects")).sort(
         justify-content: space-evenly;
         margin: 0 calc(100% - 88%);
         background-color: rgb(30, 27, 31, 0.8);
-        border-radius: 8px;
+        border-radius: 0 0 0.8rem 0.8rem;
         color: rgb(178, 179, 180);
         height: 64vh;
         flex-direction: column;

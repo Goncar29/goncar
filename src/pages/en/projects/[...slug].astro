@@ -48,13 +48,15 @@ const { Content } = await post.render();
 <style>
     section {
         display: flex;
-        align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
         margin: 0 calc(100% - 88%);
-        background-color: rgb(30, 27, 31);
-        border-radius: 8px;
+        background-color: rgb(30, 27, 31, 0.8);
+        border-radius: 0 0 0.8rem 0.8rem;
         color: rgb(178, 179, 180);
-        height: 50vh;
+        height: 64vh;
+        flex-direction: column;
+        padding: 0 2rem;
+        box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.1);
     }
     aside {
         padding: 2rem;
@@ -64,6 +66,7 @@ const { Content } = await post.render();
     }
     h2 {
         font-size: 3rem;
+        padding: 1rem 0rem;
     }
     span {
         display: inline-block;
@@ -77,5 +80,15 @@ const { Content } = await post.render();
     img {
         width: 33rem;
         border-radius: 2rem;
+    }
+    a {
+        color: #dad7d7;
+        text-decoration: none;
+        font-size: 1.2rem;
+    }
+
+    a:hover {
+        transition: 0.5s;
+        color: brown;
     }
 </style>

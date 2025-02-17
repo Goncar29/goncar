@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const translation = useTranslations(lang);
@@ -10,6 +10,12 @@ const translation = useTranslations(lang);
 		<h1 class="">{translation("home.iam")}</h1>
 		<span>
 			{translation("home.about")}
+		</span>
+		<span>
+			{translation("home.description")}
+		</span>
+		<span>
+			{translation("home.description2")}
 		</span>
 	</aside>
 	<aside>
@@ -24,24 +30,36 @@ const translation = useTranslations(lang);
 		justify-content: center;
 		margin: 0 calc(100% - 88%);
 		background-color: rgba(30, 27, 31, 0.8);
-		border-radius: 8px;
+		border-radius: 0 0 0.8rem 0.8rem;
 		color: rgb(178, 179, 180);
-		height: 100vh;
+		padding: 10rem 0;
 		box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.1);
 	}
 
 	aside {
+		display: flex;
 		padding: 2rem;
+		flex-direction: column;
 	}
 	h1 {
 		font-size: 2rem;
 	}
 	span {
+		margin-top: 2rem;
 		max-width: 50rem;
 		display: inline-block;
 		font-size: 2rem;
 	}
 	img {
 		border-radius: 50%;
+	}
+
+	@media (width <= 820px) {
+		section {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column-reverse;
+		}
 	}
 </style>

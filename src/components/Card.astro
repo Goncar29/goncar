@@ -1,4 +1,7 @@
 ---
+import { getLangFromUrl } from "@i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
 interface Props {
 	title: string;
 	body: string;
@@ -10,7 +13,7 @@ const { tags, title, body, slug } = Astro.props;
 ---
 
 <li>
-	<a href={`/es/projects/${slug}`}>
+	<a href={slug.startsWith(`/${lang}/`) ? slug : `/${lang}/projects/${slug}`}>
 		<h2 transition:name={title}>
 			{title}
 			<span>&rarr;</span>
