@@ -1,0 +1,130 @@
+---
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const translation = useTranslations(lang);
+---
+
+<nav class="burger-menu">
+    <button class="burger-button" aria-label="Toggle menu">
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+    </button>
+    <ul class="menu-items">
+        <li><a href={`/${lang}/`}>{translation("header.about")}</a></li>
+        <li>
+            <a href={`/${lang}/Projects`}>{translation("header.projects")}</a>
+        </li>
+        <li>
+            <a href="#contact" class="contact-link"
+                >{translation("header.contact")}</a
+            >
+        </li>
+    </ul>
+</nav>
+
+<style>
+    .burger-menu {
+        position: relative;
+    }
+
+    .burger-button {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 2rem;
+        height: 2rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .burger-bar {
+        width: 2rem;
+        height: 0.25rem;
+        background-color: #dad7d7;
+        border-radius: 10px;
+        transition: all 0.3s linear;
+    }
+
+    .menu-items {
+        position: absolute;
+        top: 3.5rem;
+        left: 0;
+        width: 100vw;
+        background-color: #f8f8f8;
+        display: none;
+        flex-direction: column;
+        padding: 1rem;
+        margin: 0;
+        list-style-type: none;
+    }
+
+    .menu-items li {
+        margin-bottom: 1rem;
+    }
+
+    .menu-items a {
+        text-decoration: none;
+        color: #333;
+        font-size: 1.2rem;
+    }
+
+    .menu-open .menu-items {
+        display: flex;
+    }
+
+    .menu-open .burger-bar:nth-child(1) {
+        transform: rotate(45deg) translate(0.5rem, 0.5rem);
+    }
+
+    .menu-open .burger-bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-open .burger-bar:nth-child(3) {
+        transform: rotate(-45deg) translate(0.5rem, -0.5rem);
+    }
+
+    @media (width >= 820px) {
+        nav {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+    function setupBurgerMenu() {
+        const burgerButton = document.querySelector(".burger-button");
+        const burgerMenu = document.querySelector(".burger-menu");
+        const contactLink = document.querySelector(".contact-link");
+
+        if (burgerButton && burgerMenu) {
+            burgerButton.addEventListener("click", () => {
+                burgerMenu.classList.toggle("menu-open");
+            });
+        }
+
+        if (contactLink) {
+            contactLink.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                if (burgerMenu) {
+                    burgerMenu.classList.remove("menu-open");
+                }
+
+                window.scrollTo({
+                    top: document.documentElement.scrollHeight,
+                    behavior: "smooth",
+                });
+
+                history.pushState(null, "", "#contact");
+            });
+        }
+    }
+    setupBurgerMenu();
+
+    document.addEventListener("astro:after-swap", setupBurgerMenu);
+</script>

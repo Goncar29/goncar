@@ -1,6 +1,7 @@
 ---
 import { languageList } from "@i18n/ui";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import BurgerMenu from "./BurgerMenu.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const translation = useTranslations(lang);
@@ -18,14 +19,7 @@ const translation = useTranslations(lang);
             <a href={`/${lang}/Projects`}>{translation("header.projects")}</a>
             <a id="scrollContanct">{translation("header.contact")}</a>
         </ul>
-        <select id="navSelect">
-            <option value="">Selecciona una opción</option>
-            <option value={`/${lang}/`}>{translation("header.about")}</option>
-            <option value={`/${lang}/Projects`}
-                >{translation("header.projects")}</option
-            >
-            <option value="scroll">{translation("header.contact")}</option>
-        </select>
+        <BurgerMenu />
     </aside>
     <aside>
         {
@@ -38,26 +32,6 @@ const translation = useTranslations(lang);
     </aside>
 </section>
 <script>
-    document.addEventListener("astro:after-swap", attachSelectHandler);
-    attachSelectHandler(); // Para la carga inicial
-
-    function attachSelectHandler() {
-        const select = document.querySelector("#navSelect");
-
-        if (!select) return;
-
-        select.addEventListener("change", (event) => {
-            const value = event.target.value;
-
-            if (value === "scroll") {
-                document
-                    .querySelector("footer")
-                    ?.scrollIntoView({ behavior: "smooth" });
-            } else if (value) {
-                window.location.href = value; // Redirige a la URL seleccionada
-            }
-        });
-    }
     document.addEventListener("astro:after-swap", () => {
         document
             .querySelector("#scrollContanct")
@@ -119,8 +93,7 @@ const translation = useTranslations(lang);
         section {
             display: flex;
             align-items: center;
-            justify-content: center;
-            flex-direction: reverse;
+            justify-content: space-around;
         }
         ul {
             display: none;
@@ -128,10 +101,10 @@ const translation = useTranslations(lang);
             justify-content: center;
             flex-direction: column-reverse;
         }
-    }
-    @media (width >= 820px) {
-        select {
-            display: none;
+        aside:nth-child(1) {
+            order: 1;
+            display: flex;
+            align-items: center;
         }
     }
 </style>

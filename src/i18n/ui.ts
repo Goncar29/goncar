@@ -15,7 +15,6 @@ export const labels = {
         'home.iam': 'Soy Carlos Gonzalez',
         'home.about': 'Técnico en Diseño Gráfico, Diseño Web Profesional y Desarrollador Full stack Jr. soy pasionado por la creatividad y la tecnología.',
         'home.description': 'Mi objetivo es crear experiencias visuales atractivas y funcionales, combinando diseño y desarrollo para aportar soluciones innovadoras en entornos digitales. En este momento sigo estudiando para mejorar, poniendo en practica de forma autodidacta diferentes tecnologias como JavaScript, React.js, testing, bases de datos y node.js tambien me gusta aprender diferentes idiomas como inglés y portugués.',
-
         'home.description2': 'Mi interés es la de poder seguir aprendiendo y desarrollar mis habilidades en tecnología, me siento motivado para mejorar y capacitarme. Lo veo como una manera de mejorar en mi carrera profesional.',
         'home.title': 'Habilidades',
         'projects.title': 'Proyectos',
