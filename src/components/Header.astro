@@ -1,7 +1,7 @@
 ---
 import { languageList } from "@i18n/ui";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
-import BurgerMenu from "./BurgerMenu.astro";
+import BurgerMenu from "@components/BurgerMenu.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const translation = useTranslations(lang);
@@ -32,6 +32,7 @@ const translation = useTranslations(lang);
     </aside>
 </section>
 <script>
+    //Despues que el evento astro:after-swap (cuando cargue la pagina) se ejecuta el evento click
     document.addEventListener("astro:after-swap", () => {
         document
             .querySelector("#scrollContanct")
@@ -50,6 +51,7 @@ const translation = useTranslations(lang);
         justify-content: space-around;
         padding: 1.5rem;
         position: fixed;
+        z-index: 1;
         width: 100%;
         color: #dad7d7;
         background: linear-gradient(
@@ -105,6 +107,10 @@ const translation = useTranslations(lang);
             order: 1;
             display: flex;
             align-items: center;
+        }
+        aside:nth-child(3){
+            display: flex;
+            gap: 1rem;
         }
     }
 </style>
