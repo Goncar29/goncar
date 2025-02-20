@@ -2,8 +2,8 @@
 title: 'Tic-Tac-Toe'
 pubDate: 2024-05-10
 description: 'El tres en línea, también conocido como ceros y cruces'
-image: '../../../public/TO-DO.png'
-link: 'https://goncar29.github.io/introReact/'
+image: '/tictactoe.png'
+link: 'https://ta-te-ti-pi.vercel.app/'
 tags: 'JavaScript'
 layout: "../../layouts/Posts.astro"
 ---

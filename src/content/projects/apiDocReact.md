@@ -2,7 +2,7 @@
 title: 'ApiDoc' 
 pubDate: 2024-05-10
 description: 'Sitio web para contactar medicos'
-image: '../../../public/TO-DO.png'
+image: '/TO-DO.png'
 link: 'https://goncar29.github.io/introReact/'
 tags: 'React.JS'
 layout: "../../layouts/Posts.astro"

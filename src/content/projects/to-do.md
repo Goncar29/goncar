@@ -2,7 +2,7 @@
 title: 'TO-DO'
 pubDate: 2024-05-10
 description: 'Application to organize and list things to do'
-image: '../../../public/TO-DO.png'
+image: '/TO-DO.png'
 link: 'https://goncar29.github.io/introReact/'
 tags: 'React.JS'
 layout: "../../layouts/Posts.astro"

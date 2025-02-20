@@ -2,7 +2,7 @@
 title: 'openWeather'
 pubDate: 2024-05-10
 description: 'Aplicacion web del clima'
-image: '../../../public/TO-DO.png'
+image: '/TO-DO.png'
 link: 'https://goncar29.github.io/introReact/'
 tags: 'JavaScript'
 layout: "../../layouts/Posts.astro"
