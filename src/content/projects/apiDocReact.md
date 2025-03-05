@@ -3,7 +3,7 @@ title: 'ApiDoc'
 pubDate: 16-10-2023
 description: 'Sitio web para contactar medicos'
 image: '/apiDoc.png'
-link: 'https://api-doc-react-6c7ctvndl-carlos-projects-4315e82e.vercel.app/'
+link: 'https://api-doc-react.vercel.app/'
 tags: 'React.JS'
 layout: "../../layouts/Posts.astro"
 ---
