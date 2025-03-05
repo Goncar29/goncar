@@ -1,6 +1,6 @@
 ---
 title: 'OMDb API - movie'
-pubDate: 2024-05-10
+pubDate: 12-06-2023
 description: 'Aplicacion mobile donde podras ver informacion de diferentes peliculas y series'
 image: '/omdbapi.png'
 link: 'https://goncar29.github.io/omdbapi-movie/'

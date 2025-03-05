@@ -1,9 +1,9 @@
 ---
 title: 'ApiDoc' 
-pubDate: 2024-05-10
+pubDate: 16-10-2023
 description: 'Sitio web para contactar medicos'
-image: '/TO-DO.png'
-link: 'https://goncar29.github.io/introReact/'
+image: '/apiDoc.png'
+link: 'https://api-doc-react-6c7ctvndl-carlos-projects-4315e82e.vercel.app/'
 tags: 'React.JS'
 layout: "../../layouts/Posts.astro"
 ---

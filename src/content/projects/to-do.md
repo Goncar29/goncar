@@ -1,6 +1,6 @@
 ---
 title: 'TO-DO'
-pubDate: 2024-05-10
+pubDate: 17-07-2023
 description: 'Application to organize and list things to do'
 image: '/TO-DO.png'
 link: 'https://goncar29.github.io/introReact/'

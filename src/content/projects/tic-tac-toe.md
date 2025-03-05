@@ -1,6 +1,6 @@
 ---
 title: 'Tic-Tac-Toe'
-pubDate: 2024-05-10
+pubDate: 04-07-2023
 description: 'El tres en línea, también conocido como ceros y cruces'
 image: '/tictactoe.png'
 link: 'https://ta-te-ti-pi.vercel.app/'

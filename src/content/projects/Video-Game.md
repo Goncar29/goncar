@@ -1,8 +1,8 @@
 ---
 title: 'Video-Game'
-pubDate: 2024-05-10
+pubDate: 25-11-2022
 description: 'Mini juego de tres niveles'
-image: '/TO-DO.png'
+image: '/videogame.png'
 link: 'https://goncar29.github.io/video-games-js/'
 tags: 'JavaScript'
 layout: "../../layouts/Posts.astro"
