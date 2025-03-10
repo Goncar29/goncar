@@ -9,9 +9,12 @@ import { getLangFromUrl, useTranslations } from "@i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const translation = useTranslations(lang);
 
-const posts = (await getCollection("projects")).sort(
-    (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
-);
+const posts = (await getCollection("projects"))
+    .map((post) => ({
+        ...post,
+        slug: post.data.slug || post.id, // Generar slug si no existe en frontmatter
+    }))
+    .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
 ---
 
 <Layout title="Projects">
@@ -24,7 +27,7 @@ const posts = (await getCollection("projects")).sort(
                     <Card
                         title={post.data.title}
                         tags={post.data.tags}
-                        slug={post.slug}
+                        slug={post.slug} 
                         body={post.data.body}
                     />
                 ))
@@ -33,6 +36,7 @@ const posts = (await getCollection("projects")).sort(
     </section>
     <Footer />
 </Layout>
+
 <style>
     section {
         display: flex;

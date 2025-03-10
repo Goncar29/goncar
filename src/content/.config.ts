@@ -9,6 +9,7 @@ const projects = defineCollection({
         link: z.string().optional(), // El enlace es opcional.
         tags: z.string(),
         layout: z.string(), // Usas un layout específico.
+        slug: z.string().optional(),
     }),
 });
 

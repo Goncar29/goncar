@@ -24,7 +24,7 @@ const translation = useTranslations(lang);
     <aside>
         {
             Object.entries(languageList).map(([key, value]) => (
-                <a href={`/${key}`} key={key}>
+                <a href={`/${key}`}>
                     {value}
                 </a>
             ))

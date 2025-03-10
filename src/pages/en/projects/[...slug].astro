@@ -9,15 +9,14 @@ import Base from "@layouts/Base.astro";
 export async function getStaticPaths() {
     const posts = await getCollection("projects");
 
-    console.log("Posts obtenidos:", posts);
     return posts.map((post) => ({
-        params: { slug: post.slug },
+        params: { slug: post.id },
         props: { post },
     }));
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const contentHTML = post.rendered?.html || ""; 
 ---
 
 <Base title="Projects">
@@ -27,17 +26,17 @@ const { Content } = await post.render();
         <aside>
             <article>
                 <a href="/en/Projects">⬅ Volver atrás</a>
-                <h2 transition:name={post.data.title}>
-                    {post.data.title}<span>{post.data.tags} </span>
+                <h2>
+                    {post.data.title}<span>{post.data.tags}</span>
                 </h2>
 
-                <div><Content /></div>
+                <div set:html={contentHTML}></div>
             </article>
 
             <article>
-                <a href={post.data.link}
-                    ><img alt={post.data.title} src={post.data.image} /></a
-                >
+                <a href={post.data.link}>
+                    <img alt={post.data.title} src={post.data.image} />
+                </a>
             </article>
         </aside>
     </section>
@@ -45,6 +44,8 @@ const { Content } = await post.render();
 <Footer>
     <Social />
 </Footer>
+
+
 <style>
     section {
         display: flex;
