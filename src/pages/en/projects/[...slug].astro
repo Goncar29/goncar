@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const contentHTML = post.rendered?.html || ""; 
+const contentHTML = post.rendered?.html || "";
 ---
 
 <Base title="Projects">
@@ -30,7 +30,7 @@ const contentHTML = post.rendered?.html || "";
                     {post.data.title}<span>{post.data.tags}</span>
                 </h2>
 
-                <div set:html={contentHTML}></div>
+                <p set:html={contentHTML} />
             </article>
 
             <article>
@@ -44,7 +44,6 @@ const contentHTML = post.rendered?.html || "";
 <Footer>
     <Social />
 </Footer>
-
 
 <style>
     section {
@@ -67,12 +66,16 @@ const contentHTML = post.rendered?.html || "";
     }
     h2 {
         font-size: 3rem;
-        padding: 1rem 0rem;
     }
     span {
         display: inline-block;
         font-size: 1.5rem;
         padding: 0 1rem;
+    }
+    p {
+        font-size: 1.5rem;
+        padding: 0 1rem;
+        text-wrap: pretty;
     }
     article {
         font-size: 2rem;
@@ -91,5 +94,21 @@ const contentHTML = post.rendered?.html || "";
     a:hover {
         transition: 0.5s;
         color: brown;
+    }
+    @media screen and (max-width: 900px) {
+        article {
+        }
+        section {
+            margin: 0;
+            padding: 0 2rem;
+            height: 100vh;
+        }
+        aside {
+            flex-direction: column;
+            align-items: center;
+        }
+        img {
+            width: 100%;
+        }
     }
 </style>

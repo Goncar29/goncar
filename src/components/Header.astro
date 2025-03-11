@@ -10,7 +10,7 @@ const translation = useTranslations(lang);
 <section>
     <aside>
         <a href={`/${lang}/`} target="_blank" rel="noopener noreferrer">
-            <span class=""> Carlos Gonzalez 🚀</span>
+            <span class="">Carlos Gonzalez</span>
         </a>
     </aside>
     <aside>
@@ -24,9 +24,7 @@ const translation = useTranslations(lang);
     <aside>
         {
             Object.entries(languageList).map(([key, value]) => (
-                <a href={`/${key}`}>
-                    {value}
-                </a>
+                <a href={`/${key}`}>{value}</a>
             ))
         }
     </aside>
@@ -108,7 +106,7 @@ const translation = useTranslations(lang);
             display: flex;
             align-items: center;
         }
-        aside:nth-child(3){
+        aside:nth-child(3) {
             display: flex;
             gap: 1rem;
         }
