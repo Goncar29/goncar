@@ -15,10 +15,15 @@ const translation = useTranslations(lang);
     </aside>
     <aside>
         <ul class="nav-options">
-            <a href={`/${lang}/`}>{translation("header.about")}</a>
-            <a href={`/${lang}/Projects`}>{translation("header.projects")}</a>
-            <a id="scrollContanct">{translation("header.contact")}</a>
+            <li><a href={`/${lang}/`}>{translation("header.about")}</a></li>
+            <li>
+                <a href={`/${lang}/Projects`}
+                    >{translation("header.projects")}</a
+                >
+            </li>
+            <li><a id="scrollContanct">{translation("header.contact")}</a></li>
         </ul>
+
         <BurgerMenu />
     </aside>
     <aside>
@@ -69,6 +74,12 @@ const translation = useTranslations(lang);
         width: 3rem;
         border-radius: 50%;
     }
+    ul {
+        display: flex;
+    }
+    li {
+        list-style: none;
+    }
     a {
         padding: 0 2rem;
         color: #dad7d7;
@@ -101,6 +112,7 @@ const translation = useTranslations(lang);
             justify-content: center;
             flex-direction: column-reverse;
         }
+
         aside:nth-child(1) {
             order: 1;
             display: flex;
