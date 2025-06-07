@@ -1,20 +1,40 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import { getLangFromUrl } from "@i18n/utils";
-const lang = getLangFromUrl(Astro.url);
+import SEO from "../components/SEO.astro";
 interface Props {
 	title: string;
+	description: string;
+	image?: string;
+	url?: string;
+	lang?: string;
+	alternates?: Record<string, string>;
 }
 
-const { title } = Astro.props;
+const {
+	title,
+	description,
+	image = "https://goncar.vercel.app/preview.jpg",
+	url = "https://goncar.vercel.app",
+	lang = getLangFromUrl(Astro.url),
+	alternates = {
+		en: "https://goncar.vercel.app/en",
+		es: "https://goncar.vercel.app/es",
+	},
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang={lang}>
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
+		<SEO
+			title={title}
+			description={description}
+			image={image}
+			url={url}
+			lang={lang}
+			alternates={alternates}
+		/>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>

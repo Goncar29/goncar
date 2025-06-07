@@ -9,6 +9,8 @@ export const languageList = {
 
 export const labels = {
     es: {
+        'pageTitle': "Carlos González | Desarrollador Frontend",
+        'pageDescription': 'Portafolio de Carlos González, diseñador web y desarrollador frontend especializado en tecnologías modernas.',
         'header.about': 'Acerca de',
         'header.projects': 'Proyectos',
         'header.contact': 'Contacto',
@@ -24,6 +26,8 @@ export const labels = {
         'contact.email': 'Enviame un correo',
     },
     en: {
+        'pageTitle': "Carlos González | Frontend Developer",
+        'pageDescription': 'Portfolio of Carlos González, web designer and frontend developer specializing in modern technologies.',
         'header.about': 'About',
         'header.projects': 'Projects',
         'header.contact': 'Contact',

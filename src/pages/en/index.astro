@@ -9,7 +9,16 @@ const lang = getLangFromUrl(Astro.url);
 const translation = useTranslations(lang);
 ---
 
-<Layout title="Welcome to my portfolio.">
+<Layout
+	title={translation("pageTitle")}
+	description={translation("pageDescription")}
+	lang={lang}
+	url={`https://goncar.vercel.app/${lang}`}
+	alternates={{
+		en: "https://goncar.vercel.app/en",
+		es: "https://goncar.vercel.app/es",
+	}}
+>
 	<Header />
 	<Hero />
 	<section role="list">
