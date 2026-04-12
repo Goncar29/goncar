@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 
     return posts.flatMap((post) =>
         langs.map((lang) => ({
-            params: { lang, slug: post.id },
+            params: { lang, slug: post.id.replace(/\.md$/, '') },
             props: { post, lang },
         }))
     );

@@ -77,6 +77,10 @@ const {
     <meta property="og:url" content={url} />
     <meta property="og:type" content="website" />
 
+    <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_US'} />
+    <meta property="og:locale:alternate" content={lang === 'es' ? 'en_US' : 'es_ES'} />
+    <meta property="og:site_name" content="Carlos González Portfolio" />
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
@@ -96,6 +100,23 @@ const {
         )
     }
     <link rel="alternate" hreflang="x-default" href={alternates[lang]} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Carlos González",
+        "url": "https://goncar.vercel.app",
+        "sameAs": [
+            "https://github.com/goncar",
+            "https://linkedin.com/in/goncar"
+        ],
+        "jobTitle": "Frontend Developer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Freelance"
+        }
+    })} />
 
     <link rel="icon" href="/favicon.ico" />
 </head>

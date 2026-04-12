@@ -16,7 +16,7 @@ const translation = useTranslations(lang as 'es' | 'en');
 const posts = (await getCollection("projects"))
     .map((post) => ({
         ...post,
-        slug: post.data.slug || post.id,
+        slug: post.data.slug || post.id.replace(/\.md$/, ''),
     }))
     .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
 ---
