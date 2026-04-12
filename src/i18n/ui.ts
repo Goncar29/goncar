@@ -24,6 +24,10 @@ export const labels = {
         'contact.title': 'Póngase en contacto',
         'contact.whatsapp': 'Enviar mensaje por WhatsApp',
         'contact.email': 'Enviame un correo',
+        'project.backLink': 'Volver atrás',
+        '404.p1': '¡Ups!',
+        '404.p2': 'No pudimos encontrar esa página.',
+        '404.link': 'Volver al inicio',
     },
     en: {
         'pageTitle': "Carlos González | Frontend Developer",
@@ -41,5 +45,9 @@ export const labels = {
         'contact.title': 'Get in touch',
         'contact.whatsapp': 'Send WhatsApp message',
         'contact.email': 'Send me an email',
+        'project.backLink': 'Back',
+        '404.p1': 'Uh-oh!',
+        '404.p2': "We can't find that page.",
+        '404.link': 'Go Back Home',
     }
 }

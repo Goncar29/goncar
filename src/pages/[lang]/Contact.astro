@@ -2,13 +2,25 @@
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import { useTranslations } from "@i18n/utils";
 
-const lang = getLangFromUrl(Astro.url);
-const translation = useTranslations(lang);
+export function getStaticPaths() {
+    return [{ params: { lang: 'es' } }, { params: { lang: 'en' } }];
+}
+
+const { lang } = Astro.params;
+const translation = useTranslations(lang as 'es' | 'en');
 ---
 
-<Layout title={translation("contact.title")}>
+<Layout
+    title={translation("contact.title")}
+    lang={lang}
+    url={`https://goncar.vercel.app/${lang}/Contact`}
+    alternates={{
+        en: "https://goncar.vercel.app/en/Contact",
+        es: "https://goncar.vercel.app/es/Contact",
+    }}
+>
     <Header />
     <section>
         <h1>{translation("contact.title")}</h1>
@@ -54,7 +66,7 @@ const translation = useTranslations(lang);
                     >
                 </div>
                 <a href="https://wa.me/+59892371223" target="_blank"
-                    >Enviar mensaje por WhatsApp</a
+                    >{translation("contact.whatsapp")}</a
                 >
             </li>
             <li>
@@ -98,7 +110,7 @@ const translation = useTranslations(lang);
                         ></path></svg
                     >
                 </div>
-                <a href="mailto:carlosngonzalez0@gmail.com">Enviame un correo</a
+                <a href="mailto:carlosngonzalez0@gmail.com">{translation("contact.email")}</a
                 >
             </li>
             <li>

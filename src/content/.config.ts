@@ -5,10 +5,10 @@ const projects = defineCollection({
         title: z.string(),
         pubDate: z.date(),
         description: z.string(),
-        image: z.string().optional(), // La imagen es opcional, por si algún proyecto no la tiene.
-        link: z.string().optional(), // El enlace es opcional.
+        image: z.string().optional(),
+        link: z.string().optional(),
         tags: z.string(),
-        layout: z.string(), // Usas un layout específico.
+        layout: z.string(),
         slug: z.string().optional(),
     }),
 });

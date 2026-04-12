@@ -1,22 +1,27 @@
 ---
 import { ClientRouter } from "astro:transitions";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Social from "@components/Social.astro";
 import Base from "@layouts/Base.astro";
+import { useTranslations } from "@i18n/utils";
 
 export async function getStaticPaths() {
     const posts = await getCollection("projects");
+    const langs = ['es', 'en'];
 
-    return posts.map((post) => ({
-        params: { slug: post.id },
-        props: { post },
-    }));
+    return posts.flatMap((post) =>
+        langs.map((lang) => ({
+            params: { lang, slug: post.id },
+            props: { post, lang },
+        }))
+    );
 }
 
-const { post } = Astro.props;
-const contentHTML = post.rendered?.html || "";
+const { post, lang } = Astro.props;
+const { Content } = await render(post);
+const translation = useTranslations(lang as 'es' | 'en');
 ---
 
 <Base title="Projects">
@@ -25,12 +30,14 @@ const contentHTML = post.rendered?.html || "";
         <ClientRouter />
         <aside>
             <article>
-                <a href="/en/Projects">⬅ Volver atrás</a>
+                <a href={`/${lang}/Projects`}>← {translation("project.backLink")}</a>
                 <h2>
                     {post.data.title}<span>{post.data.tags}</span>
                 </h2>
 
-                <p set:html={contentHTML} />
+                <div class="content">
+                    <Content />
+                </div>
             </article>
 
             <article>
@@ -72,7 +79,7 @@ const contentHTML = post.rendered?.html || "";
         font-size: 1.5rem;
         padding: 0 1rem;
     }
-    p {
+    .content {
         font-size: 1.5rem;
         padding: 0 1rem;
         text-wrap: pretty;
