@@ -4,7 +4,7 @@ pubDate: 14-02-2022
 description: 'Aplicacion web del clima'
 image: '/openweathermap.png'
 link: 'https://goncar29.github.io/openweathermap/'
-tags: 'JavaScript'
+tags: ['JavaScript', 'HTML', 'CSS', 'API']
 layout: "../../layouts/Posts.astro"
 ---
 

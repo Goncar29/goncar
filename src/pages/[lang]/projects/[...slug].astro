@@ -9,19 +9,40 @@ import { useTranslations } from "@i18n/utils";
 
 export async function getStaticPaths() {
     const posts = await getCollection("projects");
-    const langs = ['es', 'en'];
+    const langs = ["es", "en"];
 
     return posts.flatMap((post) =>
         langs.map((lang) => ({
-            params: { lang, slug: post.id.replace(/\.md$/, '') },
+            params: { lang, slug: post.id.replace(/\.md$/, "") },
             props: { post, lang },
-        }))
+        })),
     );
 }
 
 const { post, lang } = Astro.props;
 const { Content } = await render(post);
-const translation = useTranslations(lang as 'es' | 'en');
+const translation = useTranslations(lang as "es" | "en");
+
+// Tag colors by technology
+const tagColors: Record<string, { bg: string; text: string; border: string }> =
+    {
+        JavaScript: { bg: "#f7df1e", text: "#000", border: "#f7df1e" },
+        HTML: { bg: "#e34f26", text: "#fff", border: "#e34f26" },
+        CSS: { bg: "#264de4", text: "#fff", border: "#2965f1" },
+        React: { bg: "#61dafb", text: "#000", border: "#61dafb" },
+        Vite: { bg: "#646cff", text: "#fff", border: "#646cff" },
+        API: { bg: "#10b981", text: "#fff", border: "#10b981" },
+        Canvas: { bg: "#f59e0b", text: "#000", border: "#f59e0b" },
+    };
+
+function getTagStyle(tag: string) {
+    const colors = tagColors[tag] || {
+        bg: "#667eea",
+        text: "#fff",
+        border: "#764ba2",
+    };
+    return `background: ${colors.bg}; color: ${colors.text}; border: 1px solid ${colors.border};`;
+}
 ---
 
 <Base title="Projects">
@@ -30,10 +51,23 @@ const translation = useTranslations(lang as 'es' | 'en');
         <ClientRouter />
         <aside>
             <article>
-                <a href={`/${lang}/Projects`}>← {translation("project.backLink")}</a>
-                <h2>
-                    {post.data.title}<span>{post.data.tags}</span>
-                </h2>
+                <a href={`/${lang}/Projects`}
+                    >← {translation("project.backLink")}</a
+                >
+                <div class="title-row">
+                    <h2>
+                        {post.data.title}
+                    </h2>
+                    <div class="tags">
+                        {
+                            post.data.tags.map((tag: string) => (
+                                <span class="tag" style={getTagStyle(tag)}>
+                                    {tag}
+                                </span>
+                            ))
+                        }
+                    </div>
+                </div>
 
                 <div class="content">
                     <Content />
@@ -72,12 +106,25 @@ const translation = useTranslations(lang as 'es' | 'en');
         align-items: flex-end;
     }
     h2 {
+        display: inline;
         font-size: 3rem;
+        display: inline;
+    }
+    div {
+        display: flex;
+        align-content: center;
     }
     span {
         display: inline-block;
         font-size: 1.5rem;
         padding: 0 1rem;
+    }
+    .tags {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-left: 1rem;
+        vertical-align: middle;
     }
     .content {
         font-size: 1.5rem;
@@ -101,6 +148,28 @@ const translation = useTranslations(lang as 'es' | 'en');
     a:hover {
         transition: 0.5s;
         color: brown;
+    }
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+    .tag {
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 0.35rem 0.85rem;
+        border-radius: 9999px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+    .tag:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     }
     @media screen and (max-width: 900px) {
         article {

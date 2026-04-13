@@ -4,7 +4,7 @@ pubDate: 12-06-2023
 description: 'Aplicacion mobile donde podras ver informacion de diferentes peliculas y series'
 image: '/omdbapi.png'
 link: 'https://goncar29.github.io/omdbapi-movie/'
-tags: 'JavaScript'
+tags: ['JavaScript', 'HTML', 'CSS', 'API']
 layout: "../../layouts/Posts.astro"
 ---
 

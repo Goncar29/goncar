@@ -4,7 +4,7 @@ pubDate: 25-11-2022
 description: 'Mini juego de tres niveles'
 image: '/videogame.png'
 link: 'https://goncar29.github.io/video-games-js/'
-tags: 'JavaScript'
+tags: ['JavaScript', 'Canvas']
 layout: "../../layouts/Posts.astro"
 ---
 

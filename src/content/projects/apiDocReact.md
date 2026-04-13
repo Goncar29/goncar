@@ -4,7 +4,7 @@ pubDate: 16-10-2023
 description: 'Sitio web para contactar medicos'
 image: '/apiDoc.png'
 link: 'https://api-doc-react.vercel.app/'
-tags: 'React.JS'
+tags: ['React', 'Vite', 'CSS']
 layout: "../../layouts/Posts.astro"
 ---
 

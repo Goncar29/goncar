@@ -5,16 +5,11 @@ const lang = getLangFromUrl(Astro.url);
 interface Props {
 	title: string;
 	body: string;
-	tags: string;
+	tags: string[];
 	slug: string;
 }
 
 const { tags, title, body, slug } = Astro.props;
-
-// Parse tags - can be string or array
-const tagsList = Array.isArray(tags) 
-    ? tags 
-    : tags.split(',').map(t => t.trim());
 ---
 
 <li>
@@ -24,7 +19,7 @@ const tagsList = Array.isArray(tags)
 			<span>&rarr;</span>
 		</h2>
 		<div class="tags">
-			{tagsList.map((tag) => (
+			{tags.map((tag) => (
 				<span class="tag">{tag}</span>
 			))}
 		</div>

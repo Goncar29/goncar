@@ -4,7 +4,7 @@ pubDate: 06-11-2022
 description: 'Página web para visualización de imagenes de perros'
 image: '/apidog.png'
 link: 'https://goncar29.github.io/api-rest-thedogapi/'
-tags: 'JavaScript'
+tags: ['JavaScript', 'API']
 layout: "../../layouts/Posts.astro"
 ---
 

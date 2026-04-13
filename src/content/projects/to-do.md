@@ -4,7 +4,7 @@ pubDate: 17-07-2023
 description: 'Application to organize and list things to do'
 image: '/TO-DO.png'
 link: 'https://goncar29.github.io/introReact/'
-tags: 'React.JS'
+tags: ['React', 'Vite', 'CSS']
 layout: "../../layouts/Posts.astro"
 ---
 
