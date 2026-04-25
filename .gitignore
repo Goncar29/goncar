@@ -22,3 +22,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# SDD agent infrastructure
+.atl/
+
+# git worktrees
+.worktrees/
