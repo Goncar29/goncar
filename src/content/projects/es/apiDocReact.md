@@ -5,7 +5,6 @@ description: 'Sitio web para contactar medicos'
 image: '/apiDoc.png'
 link: 'https://api-doc-react.vercel.app/'
 tags: ['React', 'Vite', 'CSS']
-layout: "../../layouts/Posts.astro"
 ---
 
 En este sitio web podras ver toda la informacion de medicos, podras contactar con ellos y ver sus datos de contacto, podras agregarlo a una lista de favoritos para facilitar la busqueda.

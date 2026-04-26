@@ -5,7 +5,6 @@ description: 'Aplicacion mobile donde podras ver informacion de diferentes pelic
 image: '/omdbapi.png'
 link: 'https://goncar29.github.io/omdbapi-movie/'
 tags: ['JavaScript', 'HTML', 'CSS', 'API']
-layout: "../../layouts/Posts.astro"
 ---
 
 The OMDb API is a RESTful web service to obtain movie information, all content and images on the site are contributed and maintained by our users.
