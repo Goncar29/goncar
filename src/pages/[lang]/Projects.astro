@@ -14,9 +14,10 @@ const { lang } = Astro.params;
 const translation = useTranslations(lang as 'es' | 'en');
 
 const posts = (await getCollection("projects"))
+    .filter((post) => post.id.startsWith(`${lang}/`))
     .map((post) => ({
         ...post,
-        slug: post.data.slug || post.id.replace(/\.md$/, ''),
+        slug: post.data.slug || post.id.replace(/\.md$/, "").replace(`${lang}/`, ""),
     }))
     .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
 ---
