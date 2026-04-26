@@ -6,43 +6,27 @@ import Footer from "@components/Footer.astro";
 import Social from "@components/Social.astro";
 import Base from "@layouts/Base.astro";
 import { useTranslations } from "@i18n/utils";
+import { getTagStyle } from "@utils/tag-colors";
 
 export async function getStaticPaths() {
     const posts = await getCollection("projects");
     const langs = ["es", "en"];
 
-    return posts.flatMap((post) =>
-        langs.map((lang) => ({
-            params: { lang, slug: post.id.replace(/\.md$/, "") },
-            props: { post, lang },
-        })),
-    );
+    return posts
+        .filter((post) => langs.some((lang) => post.id.startsWith(`${lang}/`)))
+        .map((post) => {
+            const lang = post.id.split("/")[0];
+            const slug = post.id.replace(/\.md$/, "").replace(`${lang}/`, "");
+            return {
+                params: { lang, slug },
+                props: { post, lang },
+            };
+        });
 }
 
 const { post, lang } = Astro.props;
 const { Content } = await render(post);
 const translation = useTranslations(lang as "es" | "en");
-
-// Tag colors by technology
-const tagColors: Record<string, { bg: string; text: string; border: string }> =
-    {
-        JavaScript: { bg: "#f7df1e", text: "#000", border: "#f7df1e" },
-        HTML: { bg: "#e34f26", text: "#fff", border: "#e34f26" },
-        CSS: { bg: "#264de4", text: "#fff", border: "#2965f1" },
-        React: { bg: "#61dafb", text: "#000", border: "#61dafb" },
-        Vite: { bg: "#646cff", text: "#fff", border: "#646cff" },
-        API: { bg: "#10b981", text: "#fff", border: "#10b981" },
-        Canvas: { bg: "#f59e0b", text: "#000", border: "#f59e0b" },
-    };
-
-function getTagStyle(tag: string) {
-    const colors = tagColors[tag] || {
-        bg: "#667eea",
-        text: "#fff",
-        border: "#764ba2",
-    };
-    return `background: ${colors.bg}; color: ${colors.text}; border: 1px solid ${colors.border};`;
-}
 ---
 
 <Base title="Projects">
