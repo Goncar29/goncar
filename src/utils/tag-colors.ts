@@ -6,6 +6,10 @@ export const tagColors: Record<string, { bg: string; text: string; border: strin
   Vite: { bg: "#646cff", text: "#fff", border: "#646cff" },
   API: { bg: "#10b981", text: "#fff", border: "#10b981" },
   Canvas: { bg: "#f59e0b", text: "#000", border: "#f59e0b" },
+  TypeScript: { bg: "#3178c6", text: "#fff", border: "#3178c6" },
+  "Node.js": { bg: "#68a063", text: "#fff", border: "#68a063" },
+  PostgreSQL: { bg: "#336791", text: "#fff", border: "#336791" },
+  Tailwind: { bg: "#06b6d4", text: "#fff", border: "#06b6d4" },
 };
 
 const fallback = { bg: "#667eea", text: "#fff", border: "#764ba2" };
