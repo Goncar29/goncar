@@ -12,12 +12,16 @@ export async function getStaticPaths() {
     const posts = await getCollection("projects");
     const langs = ["es", "en"];
 
-    return posts.flatMap((post) =>
-        langs.map((lang) => ({
-            params: { lang, slug: post.id.replace(/\.md$/, "") },
-            props: { post, lang },
-        })),
-    );
+    return posts
+        .filter((post) => langs.some((lang) => post.id.startsWith(`${lang}/`)))
+        .map((post) => {
+            const lang = post.id.split("/")[0];
+            const slug = post.id.replace(/\.md$/, "").replace(`${lang}/`, "");
+            return {
+                params: { lang, slug },
+                props: { post, lang },
+            };
+        });
 }
 
 const { post, lang } = Astro.props;
