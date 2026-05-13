@@ -3,7 +3,7 @@ title: 'MediConnect'
 pubDate: 26-04-2026
 description: 'Plataforma de reserva de citas médicas online'
 image: '/MediConnect.png'
-link: 'https://mediconnect-hhjtlkpzz-carlos-projects-4315e82e.vercel.app/'
+link: 'https://mediconnect-eight-sage.vercel.app/'
 tags: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Tailwind', 'API']
 ---
 
